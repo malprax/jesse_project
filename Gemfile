@@ -60,6 +60,6 @@ gem 'gmaps4rails'
 gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
 gem 'jquery-rails'
 
-gem 'simple_form'
+# gem 'simple_form'
 gem 'annotate'
 gem 'figaro'

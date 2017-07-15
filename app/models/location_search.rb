@@ -20,7 +20,7 @@
 #
 
 class LocationSearch < ApplicationRecord
-  geocoded_by :full_address, latitude: :lat, :longitude: :lon
+  geocoded_by :full_address
   after_validation :geocode, if: ->(obj){obj.full_address.present? and obj.full_address_change}
 
   def full_address
