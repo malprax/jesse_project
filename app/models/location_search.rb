@@ -1,0 +1,2 @@
+class LocationSearch < ApplicationRecord
+end
