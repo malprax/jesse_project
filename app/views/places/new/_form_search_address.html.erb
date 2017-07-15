@@ -1,24 +1,20 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-12 offset-md-2">
+<div class="container col-md-6 offset-md-10">
+
       <%= simple_form_for @place, :remote => true do |f| %>
         <%= token_tag %>
-        <div class="form-group">
-          <%= f.label :address, "Address", class:"col-md-6 offset-md-4 col-form-label" %>
-          <div class="col-md-6 ">
+        <div class="form-group row">
+          <%= f.label :address, "Address", class: "col-md-8 col-form-label" %>
+          <div class="col-md-12">
             <%= f.input_field :address, class: "form-control" %>
-            <%= f.hidden_field :latitude, class: "form-control" %>
-            <%= f.hidden_field :longitude, class: "form-control" %>
-            <%= hidden_field_tag :push_to_database %>
-            <p>
-              <%= check_box_tag :server_lookup %> Server Lookup
-            </p>
           </div>
         </div>
         <div class="form-group">
-          <%= f.button :submit,"Submit", class: 'btn btn-primary', :id => "submit_button" %>
+          <%= f.hidden_field :latitude, class: "form-control" %>
+          <%= f.hidden_field :longitude, class: "form-control" %>
+          <%= hidden_field_tag :push_to_database %>
+          <%= check_box_tag :server_lookup %> Server Lookup
         </div>
+        <%= f.button :submit,"Submit", class: 'btn btn-primary', :id => "submit_button" %>
       <% end %>
-    </div>
-  </div>
+
 </div>
