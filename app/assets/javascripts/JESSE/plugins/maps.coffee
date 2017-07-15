@@ -2,11 +2,11 @@ JESSE.namespace 'Maps', (() ->
   return {
 
     errorLocation: (address, dataTarget) ->
-      alert('lookup failure');
       geocoder = new google.maps.Geocoder();
       geocoder.geocode({ 'address': 'pacific ocean'}, (results, status) ->
         if (status == google.maps.GeocoderStatus.OK)
-          JESSE.Maps.createMap(results[0].geometry.location.lat(), results[0].geometry.location.lng(), 'map')
+          JESSE.Maps.createMap(results[0].geometry.location.lat(), results[0].geometry.location.lng(), dataTarget)
+          alert('lookup failure');
           JESSE.Maps.createLocation(address, dataTarget);
       )
 
@@ -18,6 +18,17 @@ JESSE.namespace 'Maps', (() ->
           $('#place_longitude').val(results[0].geometry.location.lng())
           $('#push_to_database').val(true)
           $('#submit_button').click()
+        else
+          alert('no address found');
+      )
+
+    mapLookup: (dataTarget) ->
+      geocoder = new google.maps.Geocoder();
+      geocoder.geocode({ 'address': $('#place_address').val()}, (results, status) ->
+        if (status == google.maps.GeocoderStatus.OK)
+          JESSE.Maps.createMap(results[0].geometry.location.lat(), results[0].geometry.location.lng(), dataTarget)
+        else
+          alert('no address found');
       )
 
     createMap: (latitude, longitude, target) ->

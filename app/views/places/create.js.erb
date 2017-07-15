@@ -1,6 +1,5 @@
 <% unless @place.new_record? %>
   JESSE.Maps.createMap('<%= @place.latitude %>', "<%= @place.longitude %>", 'map')
 <% else %>
-  $('#form_address_wrapper').html("<%= j(render('places/new/form_search_address')).html_safe %>")
   JESSE.Maps.errorLocation("<%= @place.address %>", 'map');
 <% end %>

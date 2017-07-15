@@ -19,3 +19,14 @@
 
 //= require ./JESSE/init
 //= require_tree ./JESSE/plugins
+
+$(document).ready(function(){
+  $('#new_place').submit(function(e){
+    if(!$('#server_lookup').is(':checked')){
+      JESSE.Maps.mapLookup('map');
+      return false
+    }else{
+      $('#submit_button').click();
+    }
+  });
+});
