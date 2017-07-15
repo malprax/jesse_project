@@ -1,4 +1,7 @@
 class LocationSearchsController < ApplicationController
+  def new
+    #code
+  end
   protected
   def looking_search_params
     #code
