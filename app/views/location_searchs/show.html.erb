@@ -1,5 +1,6 @@
 <div class="container">
   <div class="row">
+    <h1>This is your location</h1>
     <%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{@place.latitude},#{@place.longitude}&markers=#{@place.latitude},#{@place.longitude}&zoom=7&size=640x400&key=AIzaSyA4BHW3txEdqfxzdTlPwaHsYRSZbfeIcd8",
                   class: 'img-fluid img-rounded', alt: "#{@place.full_address} on the map"%>
   </div>

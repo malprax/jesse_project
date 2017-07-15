@@ -13,7 +13,7 @@ class LocationSearchsController < ApplicationController
   end
 
   def show
-
+    @location_search = LocationSearch.find(params[:id])
   end
   protected
   def looking_search_params

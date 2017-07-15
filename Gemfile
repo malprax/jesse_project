@@ -62,3 +62,4 @@ gem 'jquery-rails'
 
 gem 'simple_form'
 gem 'annotate'
+gem 'figaro'
