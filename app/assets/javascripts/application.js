@@ -16,4 +16,6 @@
 
 //= require rails-ujs
 //= require turbolinks
-//= require_tree .
+
+//= require ./JESSE/init
+//= require_tree ./JESSE/plugins

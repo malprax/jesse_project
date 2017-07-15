@@ -15,27 +15,10 @@ ActiveRecord::Schema.define(version: 20170715061154) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "location_searches", force: :cascade do |t|
-    t.string "phone"
-    t.string "country"
-    t.string "city"
-    t.string "state"
-    t.string "state_code", default: "ON"
-    t.string "zip"
-    t.string "address"
-    t.float "longitude"
-    t.float "latitude"
-    t.float "fetched_latitude"
-    t.float "fetched_longitude"
-    t.string "emergency_contact"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["latitude"], name: "index_location_searches_on_latitude"
-    t.index ["longitude"], name: "index_location_searches_on_longitude"
-  end
-
   create_table "places", force: :cascade do |t|
-    t.string "name"
+    t.string "city"
+    t.string "country"
+    t.string "state"
     t.string "address"
     t.float "longitude"
     t.float "latitude"

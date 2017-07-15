@@ -2,13 +2,15 @@
 #
 # Table name: places
 #
-#  id              :integer          not null, primary key
-#  name            :string
-#  address         :string
-#  fetch_longitude :float
-#  fetch_latitude  :float
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
+#  id         :integer          not null, primary key
+#  city       :string
+#  country    :string
+#  state      :string
+#  address    :string
+#  longitude  :float
+#  latitude   :float
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 
 require 'test_helper'

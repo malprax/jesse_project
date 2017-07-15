@@ -5,6 +5,7 @@ class PlacesController < ApplicationController
   # GET /places.json
   def index
     @places = Place.all
+    @place = Place.new
   end
 
   # GET /places/1
@@ -24,26 +25,16 @@ class PlacesController < ApplicationController
   # POST /places
   # POST /places.json
   def create
-    @place = Place.create(place_params)
-
-    respond_to do |format|
-     if @place.save
-       format.html { redirect_to @place, notice: 'Place was successfully created.' }
-       format.js {}
-     else
-       format.html { render :new }
-       format.js {}
-     end
+    @place = Place.new(place_params)
+    if params[:push_to_database] == "true"
+      Rails.logger.info('save database')
+      @place.save
+    else
+      data = Place.where(:address => @place.address).first
+      @place = data if data.present?
     end
-
   end
 
-  def get_locations
-    url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{params[:latitude]},#{params[:longitude]}&radius=500&key=#{Rails.application.secrets.google_places_key}"
-    http_call = open(url).read
-    response = JSON.parse(http_call, {:symbolize_names => true})
-    @locations = response[:results]
-  end
 
   # PATCH/PUT /places/1
   # PATCH/PUT /places/1.json
@@ -77,6 +68,6 @@ class PlacesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def place_params
-      params.require(:place).permit(:address, :name, :latitude, :longitude)
+      params.require(:place).permit(:full_address, :address, :city, :country, :state, :latitude, :longitude)
     end
 end
