@@ -2,8 +2,8 @@
   <h1 class="display-3" align="center">Send Us Your Address</h1>
   <p class="lead" align="center" >and we'll let you know where you are</p>
   <div class="row">
-    <%= simple_form_for @user do |f| %>
-      <%= f.input :address, label: 'Address', error: 'I am sorry, please try again' %>
+    <%= simple_form_for @address do |f| %>
+      <%= f.input :full_address, label: 'Address', error: 'I am sorry, please try again' %>
       <%= f.button :submit %>
     <% end %>
   </div>
